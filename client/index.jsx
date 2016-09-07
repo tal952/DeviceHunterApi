@@ -41,7 +41,7 @@ class App extends React.Component {
 
     renderTable(deg, beaconId) {
         deg = deg || 0;
-        const isSelected = _.filter(this.state.modelToBeaconId[this.state.value.value], x=>x.beaconId === beaconId).length !== 0;
+        const isSelected = _.filter(this.state.modelToBeaconId[this.state.value.value], x=>x.beaconId.toUpperCase() === beaconId.toUpperCase()).length !== 0;
 
         return (
             <div style={{width: 100, height: 100, transform: 'rotate(' + deg + 'deg)'}}>
