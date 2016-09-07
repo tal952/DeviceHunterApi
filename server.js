@@ -4,6 +4,7 @@ const _ = require('koa-route');
 const body = require('koa-parse-json');
 const app = koa();
 const serve = require('koa-static');
+const findInJson = require('./findInJson');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.PROD_MONGODB || 'mongodb://localhost:27017');
@@ -25,6 +26,9 @@ app.use(_.get('/api/metrics', function *() {
     this.body = yield Metrics.find();
 }));
 app.use(_.post('/api/metrics/:id', function *(id) {
+    const body = this.request.body;
+    body.model = findInJson.getValue(body.model) || body.model;
+
     const newMetric = new Metrics(this.request.body);
     newMetric._id = id;
     yield Metrics.update({_id: id}, newMetric, {upsert: true});
