@@ -18,7 +18,6 @@ const Metrics = mongoose.model('Metrics', new mongoose.Schema({
     distanceFromBeacon: [distanceFromBeacon]
 }, {_id: false}));
 
-app.use(serve(__dirname + '/client/dis'));
 app.use(_.get('/api/isAlive', function *() {
     this.body = "Im Alive!";
 }));
@@ -29,7 +28,9 @@ app.use(_.post('/api/metrics/:id', function *(id) {
     const newMetric = new Metrics(this.request.body);
     newMetric._id = id;
     yield Metrics.update({_id: id}, newMetric, {upsert: true});
+    this.response.status = 200;
 }));
+app.use(serve(__dirname + '/client/dis'));
 
 app.listen(process.env.PORT || 5000);
 console.log('listening on port 5000');
