@@ -16,7 +16,7 @@ const distanceFromBeacon = new mongoose.Schema({_id: String, distance: Number}, 
 const Metrics = mongoose.model('Metrics', new mongoose.Schema({
     _id: String,
     model: String,
-    distanceFromBeacon: [distanceFromBeacon]
+    distanceFromBeacon: distanceFromBeacon
 }, {_id: false}));
 
 app.use(_.get('/api/isAlive', function *() {
