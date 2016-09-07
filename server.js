@@ -11,12 +11,10 @@ mongoose.connect(process.env.PROD_MONGODB || 'mongodb://localhost:27017');
 
 app.use(body());
 
-const distanceFromBeacon = new mongoose.Schema({_id: String, distance: Number}, {_id: false});
-
 const Metrics = mongoose.model('Metrics', new mongoose.Schema({
     _id: String,
     model: String,
-    distanceFromBeacon: distanceFromBeacon
+    beaconId: String
 }, {_id: false}));
 
 app.use(_.get('/api/isAlive', function *() {
