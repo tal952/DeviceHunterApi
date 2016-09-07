@@ -8,6 +8,7 @@ var config = {
     entry: APP_DIR + '/index.jsx',
     output: {
         path: BUILD_DIR,
+        publicPath:"/bundle/",
         filename: 'bundle.js'
     },
     module : {
@@ -18,7 +19,7 @@ var config = {
                 loader : 'babel'
             }
         ]
-    }
+    },
 };
 
 module.exports = config;
