@@ -13,20 +13,20 @@ class App extends React.Component {
         super(props);
         this.state = {
             value: 'Select...',
-            modelToBeaconId:{
-                'Select...':[]
+            modelToBeaconId: {
+                'Select...': []
             }
         };
     }
 
     update() {
         axios.get('/api/metrics')
-            .then(function (response) {
+            .then(response => {
                 this.setState({
                     modelToBeaconId: _.groupBy(response.data, 'model')
                 });
             })
-            .catch(function (error) {
+            .catch(error => {
                 console.log(error);
             });
     }
