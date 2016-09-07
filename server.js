@@ -3,6 +3,7 @@ const koa = require('koa');
 const _ = require('koa-route');
 const body = require('koa-parse-json');
 const app = koa();
+const serve = require('koa-static');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.PROD_MONGODB || 'mongodb://localhost:27017');
@@ -17,7 +18,9 @@ const Metrics = mongoose.model('Metrics', new mongoose.Schema({
     distanceFromBeacon: [distanceFromBeacon]
 }, {_id: false}));
 
+app.use(serve(__dirname + '/client/dis'));
 app.use(_.get('/api/isAlive', function *() {
+    this.body = "Im Alive!";
 }));
 app.use(_.get('/api/metrics', function *() {
     this.body = yield Metrics.find();
