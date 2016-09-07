@@ -1,5 +1,5 @@
-import React from 'react';
-import {render} from 'react-dom';
+import React from "react";
+import {render} from "react-dom";
 const _ = require('lodash');
 
 const Table = require('babel!svg-react!./svgs/Table.svg');
@@ -92,7 +92,7 @@ class App extends React.Component {
 
                     {this.renderTableGroup(90, 'd0d3fa86-ca76-45ec-9bd9-6af46bc823fd:26522:34031')}
                     {this.renderTableGroup(90, 'd0d3fa86-ca76-45ec-9bd9-6af48cc7d174:55540:55062')}
-                    {this.renderTableGroup(90, 'B9407F30-F5F8-466E-AFF9-25556B57FE6D:24492:47828')}
+                    {this.renderTableGroup(90, 'b9407f30-f5f8-466e-aff9-25556b57fe6d:24492:47828')}
                     {this.renderTableGroup(90, 'd0d3fa86-ca76-45ec-9bd9-6af4e9ca3442:46780:27550')}
 
                     <div>
