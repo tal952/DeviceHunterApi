@@ -96,8 +96,8 @@ class App extends React.Component {
                     {this.renderTableGroup(90, 'd0d3fa86-ca76-45ec-9bd9-6af4e9ca3442:46780:27550')}
 
                     <div>
-                        {this.renderTable(90, 'B9407F30-F5F8-466E-AFF9-25556B57FE6D:55998:11490')}
-                        {this.renderTable(90, 'B9407F30-F5F8-466E-AFF9-25556B57FE6D:55998:11490')}
+                        {this.renderTable(90, 'b9407f30-f5f8-466e-aff9-25556b57fe6d:55998:11490')}
+                        {this.renderTable(90, 'b9407f30-f5f8-466e-aff9-25556b57fe6d:55998:11490')}
                     </div>
                 </div>
                 <br/>
